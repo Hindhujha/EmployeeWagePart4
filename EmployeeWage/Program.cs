@@ -3,48 +3,16 @@ namespace EmployeeWage
 {
     class Program
     {
-        public const int IS_FULL_TIME = 1;
-        public const int IS_PART_TIME = 2;
-     
-        public static int computeEmpWage(string company,int EMP_RATE_PER_HR, int NO_OF_WORKING_DAYS,int MAX_HRS_IN_MONTH)
-        {
-            Console.WriteLine("WELCOME TO EMPLOYEE WAGE COMPUTATION");
-
-            int empHrs = 0, totalEmpHrs = 0, totalworkingdays = 0;
-
-
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalworkingdays <= NO_OF_WORKING_DAYS)
-            {
-                totalworkingdays++;
-                Random random = new Random();
-                int empcheck = random.Next(0, 3);
-
-                switch (empcheck)
-                {
-                    case IS_FULL_TIME:
-                        empHrs = 8;
-                        break;
-
-                    case IS_PART_TIME:
-
-                        empHrs = 4;
-                        break;
-                    default:
-                        empHrs = 0;
-                        break;
-                }
-                totalEmpHrs += empHrs;
-                Console.WriteLine("DAY:" + totalworkingdays + " EmpHrs:" + empHrs);
-            }
-            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HR;
-            Console.WriteLine("TOTAL EMPLOYEE WAGE FOR COMPANY: " + company + " is: " + totalEmpWage);
-            return totalEmpWage;
-        }
-
+        
+          
         static void Main(string[] args)
         {
-            computeEmpWage("DMART",20,20,100);
-            computeEmpWage("RELIANCE",10,22,150);
+            EmpWageBuilder company1=new EmpWageBuilder("DMART",20,20,100);
+           EmpWageBuilder company2 = new EmpWageBuilder("RELIANCE", 10, 22, 150);
+            company1.computeEmpWage();
+            Console.WriteLine(company1.tostring());
+            company2.computeEmpWage();
+            Console.WriteLine(company2.tostring());
         }
     }
 }
