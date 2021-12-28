@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace EmployeeWage
 {
+    public interface IComputeEmpWage
+    {
+        public void addCompanyEmpWage(string company, int EMP_RATE_PER_HR, int NO_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH);
 
+        public void ComputeEmpWage();
 
+        public int getTotalWage(string company);
+
+    }
     public class CompanyEmpWage
     {
         public int EMP_RATE_PER_HR;
@@ -15,6 +22,8 @@ namespace EmployeeWage
         public int totalEmpWage;
         public int NO_OF_WORKING_DAYS;
         public string company;
+       
+
 
         public CompanyEmpWage(string company, int EMP_RATE_PER_HR, int NO_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
         {
@@ -29,9 +38,9 @@ namespace EmployeeWage
             this.totalEmpWage= totalEmpWage;
         }
 
-        public string tostring()
+       public string toString()
         {
-            return "TOTAL EMPLOYEE WAGE FOR COMPANY: " + this.company + " is: " + this.totalEmpWage;
+            return "TOTAL EMPLOYEE WAGE FOR COMPANY: " + this.company + "is: " + this.totalEmpWage;
         }
     }
 
