@@ -7,12 +7,10 @@ namespace EmployeeWage
           
         static void Main(string[] args)
         {
-            EmpWageBuilder company1=new EmpWageBuilder("DMART",20,20,100);
-           EmpWageBuilder company2 = new EmpWageBuilder("RELIANCE", 10, 22, 150);
-            company1.computeEmpWage();
-            Console.WriteLine(company1.tostring());
-            company2.computeEmpWage();
-            Console.WriteLine(company2.tostring());
+            EmpWageBuilderArray company = new EmpWageBuilderArray();
+            company.addCompanyEmpWage("DMART",20,20,100);
+            company.addCompanyEmpWage("RELIANCE", 10, 22, 150);
+            company.computeEmpWage();
         }
     }
 }
